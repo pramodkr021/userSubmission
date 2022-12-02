@@ -22,7 +22,7 @@ exports.fetch = async(req,res)=>{
             return
         }
         if(!(await bcrypt.compare(req.body.password,login_user.password))){
-            res.status(404).json({"user":"Wrong password"})
+            res.status(401).json({"user":"Wrong password"})
             return
         }else{
             if(login_user.role ==="admin"){
